@@ -229,7 +229,7 @@ All records are saved in a file named:
 ```
 students.txt
 ```
-This file is updated every time you choose **Save to File**.
+This file is updated every time the user chooses **Save to File**.
 
 ---
 
@@ -296,7 +296,8 @@ This file is updated every time you choose **Save to File**.
 
 ## 🧭 Flowchart: Visual Flow
 
-Here’s the logical flow described as a simple chart format. Since I can’t generate visuals in this message, I’ll lay it out as ASCII-style structure:
+A simple logical flowchart that maps the Student Records program’s logic:
+
 
 ```text
 +----------------------------------+
@@ -353,7 +354,4 @@ Fail              ↓
 ```
 
 ---
-
-This structure maps cleanly to your program’s logic and gives anyone reading your README or using your code a blueprint of the system.
-
 
