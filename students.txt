@@ -1,5 +1,5 @@
-Jerry 2 34.00
-Lekan 1 45.00
-Drizzy 4 23.00
-Assurance 6 56.00
-David 6 45.00
+Assurance 3 54.00
+Etuk 1 34.00
+Lekan 5 21.00
+Drizzy 6 67.00
+Ela 2 43.00
