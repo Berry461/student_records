@@ -1,25 +1,25 @@
-## 📘 Student Record System in C
+## 📘 Student Record System in C by COS 201 Lab Group E
 
 This is a console-based C program that allows users to manage student records including adding, modifying, deleting, searching, saving, and sorting data. It demonstrates dynamic memory allocation, file handling, and structured programming techniques.
 
 ---
 
-## 📂 Features
+## Features
 
-- 👋 User greeting with name input  
-- 🧾 Student record entry (Name, Roll Number, Marks)  
-- ✅ Pass/fail evaluation based on marks  
-- 📋 Display all records  
-- ✏️ Modify student records  
-- 🔍 Search by roll number  
-- 🗑️ Delete records by roll number  
-- 💾 Save/load records from a file  
-- 🧮 Calculate average marks  
-- 📊 Sort records by marks (ascending or descending)
+- User greeting with name input  
+- Student record entry (Name, Roll Number, Marks)  
+- Pass/fail evaluation based on marks  
+- Display all records  
+- Modify student records  
+- Search by roll number  
+- Delete records by roll number  
+- Save/load records from a file  
+- Calculate average marks  
+- Sort records by marks (ascending or descending)
 
 ---
 
-## 🧱 Code Breakdown
+## Code Breakdown
 
 ### 1. **Header Files and Definitions**
 ```c
@@ -31,7 +31,7 @@ This is a console-based C program that allows users to manage student records in
 #define MAX_NAME_LEN 50
 #define FILENAME "students.txt"
 ```
-Imports standard I/O, memory, and string handling. Also defines constants like passing threshold and max name length.
+Imports standard Input/Output, memory, and string handling. Also defines constants like passing threshold and max name length.
 
 ---
 
@@ -154,7 +154,7 @@ void saveToFile() {
     // ...
 }
 ```
-Writes all student data to `students.txt` using file I/O.
+Writes all student data to `students.txt` using file Input/Output.
 
 ---
 
@@ -209,21 +209,21 @@ Menu Options:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### 🔧 Compile the Program
+### Compile the Program
 ```bash
 gcc student_record_system.c -o student_records
 ```
 
-### ▶️ Run the Program
+### Run the Program
 ```bash
 ./student_records
 ```
 
 ---
 
-## 📁 File Output
+## File Output
 
 All records are saved in a file named:
 ```
@@ -233,20 +233,14 @@ This file is updated every time the user chooses **Save to File**.
 
 ---
 
-## 🧠 Things to Improve
-- Add login/password protection
-- Store data in CSV or JSON format
-- Implement error logging
-- Support spaces in student names
 
----
 
 
 
 
 ---
 
-## 🔢 Algorithm: Student Record System
+## Algorithm: Student Record System
 
 ### Step-by-Step Procedure
 ```text
@@ -294,7 +288,7 @@ This file is updated every time the user chooses **Save to File**.
 
 ---
 
-## 🧭 Flowchart: Visual Flow
+## Flowchart: Visual Flow
 
 A simple logical flowchart that maps the Student Records program’s logic:
 
