@@ -1,20 +1,28 @@
-Student Record System in C
+## 📘 Student Record System in C by COS 201 Lab Group E
+
 This is a console-based C program that allows users to manage student records including adding, modifying, deleting, searching, saving, and sorting data. It demonstrates dynamic memory allocation, file handling, and structured programming techniques.
 
-Features
--  User greeting with name input
--  Student record entry (Name, Roll Number, Marks)
--  Pass/fail evaluation based on marks
--  Display all records
--  Modify student records
--  Search by roll number
--  Delete records by roll number
--  Save/load records from a file
--  Calculate average marks
--  Sort records by marks (ascending or descending)
+---
 
-Code Breakdown
-1. Header Files and Definitions
+## Features
+
+- User greeting with name input  
+- Student record entry (Name, Roll Number, Marks)  
+- Pass/fail evaluation based on marks  
+- Display all records  
+- Modify student records  
+- Search by roll number  
+- Delete records by roll number  
+- Save/load records from a file  
+- Calculate average marks  
+- Sort records by marks (ascending or descending)
+
+---
+
+## Code Breakdown
+
+### 1. **Header Files and Definitions**
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -22,170 +30,220 @@ Code Breakdown
 #define PASS_MARKS 40
 #define MAX_NAME_LEN 50
 #define FILENAME "students.txt"
+```
+Imports standard Input/Output, memory, and string handling. Also defines constants like passing threshold and max name length.
 
+---
 
-Imports standard I/O, memory, and string handling. Also defines constants like passing threshold and max name length.
-
-2. Student Data Structure
+### 2. **Student Data Structure**
+```c
 typedef struct {
     char name[MAX_NAME_LEN];
     int roll;
     float marks;
 } Student;
-
-
+```
 Creates a structure to store student details.
 
-3. Global Variables
+---
+
+### 3. **Global Variables**
+```c
 Student *records = NULL;
 int count = 0;
 int capacity = 5;
-
-
+```
 Manages student records dynamically using a pointer array.
 
-4. Input Buffer Flush
+---
+
+### 4. **Input Buffer Flush**
+```c
 void flushInput() {
     while (getchar() != '\n');
 }
-
-
+```
 Ensures smooth input handling by clearing unwanted characters from the buffer.
 
-5. Welcome and Greeting
+---
+
+### 5. **Welcome and Greeting**
+```c
 void greetUser() {
     char username[MAX_NAME_LEN];
     // ...
 }
-
-
+```
 Prompts the user for their name and displays a welcome message.
 
-6. Check Pass/Fail Status
+---
+
+### 6. **Check Pass/Fail Status**
+```c
 void checkStatus(float marks) {
     // ...
 }
-
-
+```
 Evaluates if a student passed based on the predefined threshold.
 
-7. Memory Management
+---
+
+### 7. **Memory Management**
+```c
 void expandMemory() {
     // ...
 }
-
-
+```
 Dynamically doubles the storage array when capacity is reached.
 
-8. Add Student
+---
+
+### 8. **Add Student**
+```c
 void addStudent() {
     // ...
 }
-
-
+```
 Adds a new student record, allocates memory if needed, and displays pass/fail status.
 
-9. Display All Records
+---
+
+### 9. **Display All Records**
+```c
 void displayAll() {
     // ...
 }
-
-
+```
 Shows every student record in a readable format.
 
-10. Modify Student Record
+---
+
+### 10. **Modify Student Record**
+```c
 void modifyStudent() {
     // ...
 }
-
-
+```
 Locates a student by roll number and updates their info.
 
-11. Search Student Record
+---
+
+### 11. **Search Student Record**
+```c
 void searchStudent() {
     // ...
 }
-
-
+```
 Searches for a student by roll number and displays their info.
 
-12. Delete Student Record
+---
+
+### 12. **Delete Student Record**
+```c
 void deleteStudent() {
     // ...
 }
-
-
+```
 Deletes a student by shifting elements in the array. Decreases count and frees the space logically.
 
-13. Save Records to File
+---
+
+### 13. **Save Records to File**
+```c
 void saveToFile() {
     // ...
 }
+```
+Writes all student data to `students.txt` using file Input/Output.
 
+---
 
-Writes all student data to students.txt using file I/O.
-
-14. Load Records from File
+### 14. **Load Records from File**
+```c
 void loadFromFile() {
     // ...
 }
+```
+Loads existing student records from `students.txt` into memory when the program starts.
 
+---
 
-Loads existing student records from students.txt into memory when the program starts.
-
-15. Calculate Average Marks
+### 15. **Calculate Average Marks**
+```c
 void calculateAverage() {
     // ...
 }
-
-
+```
 Computes the average of all stored student marks.
 
-16. Sort Records by Marks
+---
+
+### 16. **Sort Records by Marks**
+```c
 void sortRecords() {
     // ...
 }
-
-
+```
 Allows sorting marks in ascending or descending order via basic bubble sort.
 
-17. Main Function & Menu Logic
+---
+
+### 17. **Main Function & Menu Logic**
+```c
 int main() {
     // ...
 }
-
-
+```
 Initializes memory, greets user, loads saved records, and presents a looped menu with 9 options.
+
 Menu Options:
-- Add Student
-- Display All
-- Modify Student
-- Delete Student
-- Search Student
-- Save to File
-- Calculate Average
-- Sort Records
-- Exit Program
+1. Add Student  
+2. Display All  
+3. Modify Student  
+4. Delete Student  
+5. Search Student  
+6. Save to File  
+7. Calculate Average  
+8. Sort Records  
+9. Exit Program
 
-Getting Started
-Compile the Program
+---
+
+## Getting Started
+
+### Compile the Program
+```bash
 gcc student_record_system.c -o student_records
+```
 
-
-Run the Program
+### Run the Program
+```bash
 ./student_records
+```
 
+---
 
+## File Output
 
-File Output
 All records are saved in a file named:
+```
 students.txt
+```
+This file is updated every time the user chooses **Save to File**.
+
+---
 
 
-This file is updated every time you choose Save to File.
 
-Algorithm: Student Record System
-Step-by-Step Procedure
+
+
+
+---
+
+## Algorithm: Student Record System
+
+### Step-by-Step Procedure
+```text
 1. Start
 2. Display welcome message and prompt user for name
 3. Load existing student records from file (if available)
@@ -226,11 +284,16 @@ Step-by-Step Procedure
             - Break loop
 5. Free allocated memory
 6. End
+```
+
+---
+
+## Flowchart: Visual Flow
+
+A simple logical flowchart that maps the Student Records program’s logic:
 
 
-
-Flowchart: Visual Flow
-Here’s the logical flow described as a simple chart format. Since I can’t generate visuals in this message, I’ll lay it out as ASCII-style structure:
+```text
 +----------------------------------+
 |           Start                 |
 +----------------------------------+
@@ -282,8 +345,7 @@ Fail              ↓
 +------------------------------+
 |     Free memory & Exit      |
 +------------------------------+
+```
 
-
-
-
+---
 
