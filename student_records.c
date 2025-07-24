@@ -6,7 +6,7 @@
 #define MAX_NAME_LEN 50
 #define FILENAME "students.txt"
 
-//  Function Prototypes
+//  Function Declarations and Prototype
 void flushInput();
 void greetUser();
 void checkStatus(float marks);
