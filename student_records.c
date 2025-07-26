@@ -52,19 +52,20 @@ void greetUser()
     while (!valid)
     {
         printf("Please enter your name: ");
-        if (scanf("%s", username) != 1)
+        if (fgets(username, sizeof(username), stdin) == NULL)
         {
             printf("Invalid input.\n");
-            flushInput();
             continue;
         }
 
-        // Check if name contains only letters
+        // Remove trailing newline
+        username[strcspn(username, "\n")] = '\0';
+
+        // Check for digits
         valid = 1;
         for (int i = 0; username[i] != '\0'; i++)
         {
-            if (!(username[i] >= 'A' && username[i] <= 'Z') &&
-                !(username[i] >= 'a' && username[i] <= 'z'))
+            if (username[i] >= '0' && username[i] <= '9')
             {
                 valid = 0;
                 break;
@@ -73,12 +74,10 @@ void greetUser()
 
         if (!valid)
         {
-            printf("Error: Name should contain only letters. Please try again.\n");
-            flushInput();
+            printf("Error: Name should not contain numbers. Please try again.\n");
         }
     }
 
-    flushInput();
     printf("Hello, %s! Let's get started.\n\n", username);
 }
 
@@ -111,15 +110,15 @@ void addStudent()
     if (count == capacity)
         expandMemory();
 
-    // Input and validate name
     printf("Enter student name: ");
-    if (scanf("%s", records[count].name) != 1)
+    if (fgets(records[count].name, sizeof(records[count].name), stdin) == NULL)
     {
         printf("Invalid name input.\n");
         return;
     }
+    records[count].name[strcspn(records[count].name, "\n")] = '\0';
 
-    // Check if name contains digits
+    // Check for digits
     for (int i = 0; records[count].name[i] != '\0'; i++)
     {
         if (records[count].name[i] >= '0' && records[count].name[i] <= '9')
@@ -129,11 +128,11 @@ void addStudent()
         }
     }
 
-    // Input and validate roll number
     printf("Enter roll number: ");
     if (scanf("%d", &records[count].roll) != 1)
     {
         printf("Invalid roll number.\n");
+        flushInput();
         return;
     }
 
@@ -143,15 +142,16 @@ void addStudent()
         if (records[i].roll == records[count].roll)
         {
             printf("Error: Roll number already exists. Please enter a unique roll number.\n");
+            flushInput();
             return;
         }
     }
 
-    // Input and validate marks
     printf("Enter marks: ");
     if (scanf("%f", &records[count].marks) != 1)
     {
         printf("Invalid marks input.\n");
+        flushInput();
         return;
     }
 
@@ -186,6 +186,7 @@ void modifyStudent()
     if (scanf("%d", &roll) != 1)
     {
         printf("Invalid roll number.\n");
+        flushInput();
         return;
     }
     flushInput();
@@ -195,17 +196,31 @@ void modifyStudent()
         if (records[i].roll == roll)
         {
             printf("Enter new name: ");
-            if (scanf("%s", records[i].name) != 1)
+            if (fgets(records[i].name, sizeof(records[i].name), stdin) == NULL)
             {
                 printf("Invalid name input.\n");
                 return;
             }
+            records[i].name[strcspn(records[i].name, "\n")] = '\0';
+
+            // Check for digits
+            for (int j = 0; records[i].name[j] != '\0'; j++)
+            {
+                if (records[i].name[j] >= '0' && records[i].name[j] <= '9')
+                {
+                    printf("Error: Name should not contain numbers.\n");
+                    return;
+                }
+            }
+
             printf("Enter new marks: ");
             if (scanf("%f", &records[i].marks) != 1)
             {
                 printf("Invalid marks input.\n");
+                flushInput();
                 return;
             }
+
             flushInput();
             printf("Record updated!\n");
             return;
